@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Button } from "@heroui/react";
 import { Card } from "@/components/Cards/Card";
 import courses from "../../data/data.json";
+import Link from "next/link";
 
 const Section2 = () => {
   return (
@@ -27,11 +28,10 @@ const Section2 = () => {
                 </p>
               </div>
               <Button
-                onClick={() => onNavigate("courses")}
                 variant="outline"
                 className="border-orange-300 text-orange-700 hover:bg-orange-50"
               >
-                View All
+                <Link href="/AllCourses">View All</Link>
               </Button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

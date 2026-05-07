@@ -24,13 +24,6 @@ const Section2 = () => {
                 </h2>
                 <p className="text-gray-600">All Courses</p>
               </div>
-              <Button
-                onClick={() => onNavigate("courses")}
-                variant="outline"
-                className="border-orange-300 text-orange-700 hover:bg-orange-50"
-              >
-                View All
-              </Button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {courses.map((course, index) => (
