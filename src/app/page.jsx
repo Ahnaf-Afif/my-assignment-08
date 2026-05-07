@@ -1,9 +1,16 @@
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import Section1 from "@/components/Home/Section1";
+import Section2 from "@/components/Home/Section2";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <Navbar />
+      <Section1 />
+      <Section2 />
+      <Footer />
     </div>
   );
 }

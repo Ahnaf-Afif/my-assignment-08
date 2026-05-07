@@ -1,0 +1,171 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch. Master HTML, CSS, JavaScript, React, Node.js, and databases.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
+    "category": "Development",
+    "students": 12450,
+    "price": "$89.99",
+    "curriculum": [
+      "Introduction to Web Development",
+      "HTML & CSS Fundamentals",
+      "JavaScript Essentials",
+      "React.js for Beginners",
+      "Backend with Node.js",
+      "Database Management",
+      "Deployment & Hosting"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "UI/UX Design Masterclass",
+    "instructor": "Sarah Johnson",
+    "duration": "15 hours",
+    "rating": 4.9,
+    "level": "Intermediate",
+    "description": "Master the art of user interface and user experience design. Learn Figma, design principles, and create stunning interfaces.",
+    "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+    "category": "Design",
+    "students": 8920,
+    "price": "$79.99",
+    "curriculum": [
+      "Design Thinking Basics",
+      "Figma Fundamentals",
+      "Typography & Color Theory",
+      "Wireframing & Prototyping",
+      "User Research Methods",
+      "Usability Testing"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Strategy",
+    "instructor": "Mike Chen",
+    "duration": "12 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Learn how to create effective digital marketing campaigns. Master SEO, social media, email marketing, and analytics.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    "category": "Marketing",
+    "students": 15320,
+    "price": "$69.99",
+    "curriculum": [
+      "Digital Marketing Overview",
+      "SEO Fundamentals",
+      "Social Media Marketing",
+      "Email Marketing Campaigns",
+      "Content Marketing",
+      "Analytics & Reporting"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Python for Data Science",
+    "instructor": "Dr. Emily Brown",
+    "duration": "25 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Dive deep into data science with Python. Learn pandas, NumPy, machine learning, and data visualization.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    "category": "Development",
+    "students": 11200,
+    "price": "$99.99",
+    "curriculum": [
+      "Python Basics Review",
+      "NumPy & Pandas",
+      "Data Visualization with Matplotlib",
+      "Machine Learning Fundamentals",
+      "Deep Learning Intro",
+      "Real-world Projects"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Mobile App Development with React Native",
+    "instructor": "Alex Turner",
+    "duration": "18 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Build cross-platform mobile apps with React Native. Learn to create iOS and Android apps with a single codebase.",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+    "category": "Development",
+    "students": 9840,
+    "price": "$84.99",
+    "curriculum": [
+      "React Native Setup",
+      "Components & Navigation",
+      "State Management",
+      "API Integration",
+      "Native Features",
+      "Publishing Apps"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Graphic Design Fundamentals",
+    "instructor": "Lisa Martinez",
+    "duration": "14 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Master graphic design principles and tools. Learn Adobe Photoshop, Illustrator, and create professional designs.",
+    "image": "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=600&fit=crop",
+    "category": "Design",
+    "students": 13560,
+    "price": "$74.99",
+    "curriculum": [
+      "Design Principles",
+      "Adobe Photoshop Basics",
+      "Adobe Illustrator",
+      "Logo Design",
+      "Brand Identity",
+      "Portfolio Building"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Cloud Computing with AWS",
+    "instructor": "David Kim",
+    "duration": "22 hours",
+    "rating": 4.7,
+    "level": "Advanced",
+    "description": "Learn Amazon Web Services from scratch. Master cloud infrastructure, deployment, and DevOps practices.",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
+    "category": "Development",
+    "students": 7650,
+    "price": "$94.99",
+    "curriculum": [
+      "AWS Fundamentals",
+      "EC2 & S3",
+      "Database Services",
+      "Serverless Architecture",
+      "DevOps on AWS",
+      "Security Best Practices"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Content Writing & Copywriting",
+    "instructor": "Rachel Green",
+    "duration": "10 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Learn to write compelling content and copy that converts. Master storytelling, SEO writing, and persuasive techniques.",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600&fit=crop",
+    "category": "Marketing",
+    "students": 6420,
+    "price": "$59.99",
+    "curriculum": [
+      "Writing Fundamentals",
+      "SEO Content Writing",
+      "Copywriting Techniques",
+      "Storytelling",
+      "Editing & Proofreading",
+      "Building Your Portfolio"
+    ]
+  }
+]
