@@ -33,7 +33,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/Timeline"
+                  href="/AllCourses"
                   className={
                     pathname === "/Timeline" ? "bg-[#244D3F] text-white" : ""
                   }

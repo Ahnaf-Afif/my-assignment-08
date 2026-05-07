@@ -20,7 +20,7 @@ const Section2 = () => {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                  Popular Courses
+                  Trending Courses
                 </h2>
                 <p className="text-gray-600">
                   Top-rated courses chosen by our students
@@ -35,7 +35,7 @@ const Section2 = () => {
               </Button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {courses.slice(0, 3).map((course, index) => (
+              {courses.slice(4, 7).map((course, index) => (
                 <motion.div
                   key={course.id}
                   initial={{ opacity: 0, y: 20 }}

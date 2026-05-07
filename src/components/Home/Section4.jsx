@@ -1,4 +1,41 @@
+"use client";
+
 import React from "react";
+import { motion } from "motion/react";
+import { Card, CardContent } from "@heroui/react";
+import { Avatar, AvatarImage, AvatarFallback } from "@heroui/react";
+import { BookOpen, Star } from "lucide-react";
+
+const instructors = [
+  {
+    name: "John Doe",
+    role: "Senior Developer",
+    image: "https://via.placeholder.com/150",
+    courses: 10,
+    rating: 4.8,
+  },
+  {
+    name: "Jane Smith",
+    role: "Lead Instructor",
+    image: "https://via.placeholder.com/150",
+    courses: 8,
+    rating: 4.7,
+  },
+  {
+    name: "Mike Johnson",
+    role: "Software Engineer",
+    image: "https://via.placeholder.com/150",
+    courses: 12,
+    rating: 4.9,
+  },
+  {
+    name: "Emily Davis",
+    role: "UI/UX Designer",
+    image: "https://via.placeholder.com/150",
+    courses: 15,
+    rating: 4.6,
+  },
+];
 
 const Section4 = () => {
   return (
