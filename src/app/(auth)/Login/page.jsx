@@ -2,15 +2,51 @@
 
 import { GraduationCap } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
+import { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Example() {
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+  };
+
+  const [showPassword, setShowPassword] = useState(true);
+
+  const togglePass = () => {
+    setShowPassword(!showPassword);
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    console.log(data);
+
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email, // required
+      password: data.password, // required
+      rememberMe: true,
+      callbackURL: "/",
+    });
+
+    console.log(res);
+    console.log(error);
+
+    if (error) {
+      alert(error.message);
+    }
+
+    if (res) {
+      alert("Login Successful");
+    }
+  };
 
   return (
     <>
@@ -73,7 +109,7 @@ export default function Example() {
                   defaultValue=""
                   {...register("password")}
                   id="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
                   autoComplete="current-password"
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white"
@@ -84,17 +120,38 @@ export default function Example() {
                   </p>
                 )}
               </div>
+              <button
+                type="button"
+                className="btn mt-4"
+                onClick={() => togglePass()}
+              >
+                show password
+              </button>
             </div>
 
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white"
+                className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white btn"
               >
                 Sign in
               </button>
+              <button
+                type="button"
+                className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm/6 font-semibold text-white btn mt-3"
+                onClick={handleGoogleSignIn}
+              >
+                <FaGoogle />
+                Sign in with GOOGLE
+              </button>
             </div>
           </form>
+          <p className="mt-3">
+            Not a user?{" "}
+            <button type="button" className="btn btn-link">
+              <Link href="/Register">Register</Link>
+            </button>
+          </p>
         </div>
       </div>
     </>

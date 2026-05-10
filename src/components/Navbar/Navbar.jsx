@@ -8,9 +8,16 @@ import { ChartNoAxesColumnDecreasing } from "lucide-react";
 import { GraduationCap } from "lucide-react";
 import { TvMinimalPlay } from "lucide-react";
 import { LogIn } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
   const pathname = usePathname();
+
+  const { data: session, isPending } = authClient.useSession();
+  const user = session?.user;
+
+  console.log(user);
+
   return (
     <div className="navbar bg-base-100 shadow-sm px-3 md:px-10">
       <div className="flex-1">
@@ -51,32 +58,67 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="flex-1 flex justify-end items-center gap-2">
-        <div className="hidden md:flex items-center gap-2">
-          <Link
-            href="/Login"
-            className={`btn ${
-              pathname === "/Login" ? "bg-[#244D3F] text-white" : ""
-            }`}
-          >
-            <LogIn />
-            Login
-          </Link>
-
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="profile"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
+      <div className="flex-1 flex justify-end items-center gap-2 md:px-3">
+        {isPending ? (
+          <span className="loading loading-bars loading-lg"></span>
+        ) : user ? (
+          <div className="hidden md:flex items-center gap-2">
+            <p>Hello, {user?.name}</p>
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="profile"
+                  src={
+                    user?.image ||
+                    "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  }
+                />
+              </div>
             </div>
+            <Link
+              href="/Login"
+              className={`btn ${
+                pathname === "/Login" ? "bg-[#244D3F] text-white" : ""
+              }`}
+            >
+              <LogIn />
+              <button onClick={async () => await authClient.signOut()}>
+                Logout
+              </button>
+            </Link>
           </div>
-        </div>
-
+        ) : (
+          <div className="hidden md:flex items-center gap-2">
+            {/* <p>Hello, {user?.name}</p> */}
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                {/* <img
+                  alt="profile"
+                  src={
+                    "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  }
+                /> */}
+              </div>
+            </div>
+            <Link
+              href="/Login"
+              className={`btn ${
+                pathname === "/Login" ? "bg-[#244D3F] text-white" : ""
+              }`}
+            >
+              <LogIn />
+              Login
+            </Link>
+          </div>
+        )}
         <div className="dropdown dropdown-end md:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost">
             Menu

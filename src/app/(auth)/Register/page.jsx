@@ -2,21 +2,53 @@
 
 import { GraduationCap } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
+import { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 
 export default function Example() {
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+  };
+  const [showPassword, setShowPassword] = useState(true);
+
+  const togglePass = () => {
+    setShowPassword(!showPassword);
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { email, name, url, password } = data;
+
+    const { data: res, error } = await authClient.signUp.email({
+      name: name, // required
+      email: email, // required
+      password: password, // required
+      image: url || undefined,
+      callbackURL: "/",
+    });
+    console.log(res);
+    console.log(error);
+
+    if (error) {
+      alert(error.message);
+    }
+
+    if (res) {
+      alert("Signup Successful");
+    }
   };
 
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
+      <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-black">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="bg-linear-to-r from-orange-500 to-orange-600 p-3 rounded-lg">
@@ -75,7 +107,7 @@ export default function Example() {
                   defaultValue=""
                   {...register("name")}
                   id="name"
-                  type="name"
+                  type="text"
                   required
                   autoComplete="current-password"
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white"
@@ -127,7 +159,7 @@ export default function Example() {
                   defaultValue=""
                   {...register("password")}
                   id="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
                   autoComplete="current-password"
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white"
@@ -138,6 +170,13 @@ export default function Example() {
                   </p>
                 )}
               </div>
+              <button
+                type="button"
+                className="btn mt-4"
+                onClick={() => togglePass()}
+              >
+                show password
+              </button>
             </div>
 
             <div>
@@ -146,6 +185,14 @@ export default function Example() {
                 className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white"
               >
                 Register
+              </button>
+              <button
+                type="button"
+                className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm/6 font-semibold text-white btn mt-3"
+                onClick={handleGoogleSignIn}
+              >
+                <FaGoogle />
+                Sign in with GOOGLE
               </button>
             </div>
           </form>
