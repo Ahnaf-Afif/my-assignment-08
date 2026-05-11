@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Card, CardContent } from "@heroui/react";
 import { Avatar, AvatarImage, AvatarFallback } from "@heroui/react";
 import { BookOpen, Star } from "lucide-react";
+import courses from "../../data/data.json";
 
 const instructors = [
   {
@@ -57,7 +58,10 @@ const Section4 = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {instructors.map((instructor, index) => (
+              {instructors.map((instructor, index) => {
+                const courseInstructor = courses[index]?.instructor || instructor.name;
+
+                return (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -69,15 +73,15 @@ const Section4 = () => {
                     <CardContent className="pt-6">
                       <Avatar className="w-24 h-24 mx-auto mb-4 border-4 border-orange-200">
                         <AvatarImage
-                          src={instructor.image}
-                          alt={instructor.name}
+                          src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${courseInstructor}`}
+                          alt={courseInstructor}
                         />
                         <AvatarFallback className="bg-orange-100 text-orange-700 text-2xl">
-                          {instructor.name.charAt(0)}
+                          {courseInstructor.charAt(0)}
                         </AvatarFallback>
                       </Avatar>
                       <h3 className="font-semibold text-lg text-gray-900">
-                        {instructor.name}
+                        {courseInstructor}
                       </h3>
                       <p className="text-sm text-gray-600 mb-3">
                         {instructor.role}
@@ -95,7 +99,8 @@ const Section4 = () => {
                     </CardContent>
                   </Card>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
         </div>

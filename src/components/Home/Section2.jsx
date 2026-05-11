@@ -45,7 +45,7 @@ const Section2 = () => {
                 >
                   <Card
                     course={course}
-                    onViewDetails={(id) => onNavigate("course-details", id)}
+                    // onViewDetails={(id) => onNavigate("course-details", id)}
                   />
                 </motion.div>
               ))}

@@ -3,10 +3,13 @@
 import { GraduationCap } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Example() {
+  const loginLinkRef = useRef(null);
+
   const handleGoogleSignIn = async () => {
     const data = await authClient.signIn.social({
       provider: "google",
@@ -43,11 +46,15 @@ export default function Example() {
 
     if (res) {
       alert("Signup Successful");
+      loginLinkRef.current?.click();
     }
   };
 
   return (
     <>
+      <Link ref={loginLinkRef} href="/Login" className="hidden">
+        Login
+      </Link>
       <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-black">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="flex items-center justify-center gap-2 mb-4">

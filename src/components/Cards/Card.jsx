@@ -7,6 +7,7 @@ import { Star, Clock, Users, TrendingUp } from "lucide-react";
 import { Card as CardUI, CardContent } from "@heroui/react";
 import { Button } from "@heroui/react";
 import { Badge } from "@heroui/react";
+import Link from "next/link";
 
 export function Card({ course, onViewDetails }) {
   return (
@@ -61,10 +62,10 @@ export function Card({ course, onViewDetails }) {
             </span>
           )}
           <Button
-            onClick={() => onViewDetails(course.id)}
+            // onClick={() => onViewDetails(course.id)}
             className="bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 ml-auto"
           >
-            View Details
+            <Link href={`/Details/${course.id}`}>View Details</Link>
           </Button>
         </div>
       </CardContent>
