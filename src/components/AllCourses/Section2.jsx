@@ -5,8 +5,14 @@ import { motion } from "motion/react";
 import { Button } from "@heroui/react";
 import { Card } from "@/components/Cards/Card";
 import courses from "../../data/data.json";
+import { Label, SearchField } from "@heroui/react";
+import { useState } from "react";
 
 const Section2 = () => {
+  const [search, setSearch] = useState("");
+  const filteredCourses = courses.filter((course) =>
+    course.title.toLowerCase().includes(search.toLowerCase()),
+  );
   return (
     <div>
       <section className="py-16 bg-white">
@@ -25,8 +31,24 @@ const Section2 = () => {
                 <p className="text-gray-600">All Courses</p>
               </div>
             </div>
+            <SearchField
+              name="search"
+              className={"w-full mb-4 "}
+              value={search}
+              onChange={setSearch}
+            >
+              <Label>Search</Label>
+              <SearchField.Group className={"bg-gray-200"}>
+                <SearchField.SearchIcon />
+                <SearchField.Input
+                  className="w-[280px] text-orange-600"
+                  placeholder="Search..."
+                />
+                <SearchField.ClearButton />
+              </SearchField.Group>
+            </SearchField>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {courses.map((course, index) => (
+              {filteredCourses.map((course, index) => (
                 <motion.div
                   key={course.id}
                   initial={{ opacity: 0, y: 20 }}

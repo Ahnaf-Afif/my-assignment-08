@@ -6,6 +6,7 @@ import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function Example() {
   const handleGoogleSignIn = async () => {
@@ -40,11 +41,11 @@ export default function Example() {
     console.log(error);
 
     if (error) {
-      alert(error.message);
+      toast(error.message);
     }
 
     if (res) {
-      alert("Login Successful");
+      toast("Login Successful");
     }
   };
 

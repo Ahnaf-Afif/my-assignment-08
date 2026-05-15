@@ -9,6 +9,7 @@ import CourseHero from "./CourseHero";
 import AbtCourse from "./AbtCourse";
 import CrsCurr from "./CrsCurr";
 import CrsSide from "./CrsSide";
+import { toast } from "react-toastify";
 
 export default function CourseDetails() {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function CourseDetails() {
   });
 
   function handleEnroll() {
-    alert("Successfully enrolled in the course!");
+    toast("Successfully enrolled in the course!");
   }
 
   const learnItems = [

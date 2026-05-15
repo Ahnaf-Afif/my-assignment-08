@@ -3,14 +3,14 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-horizontal footer-center bg-[#244D3F] text-primary-content p-10 ">
+      <footer className="footer footer-horizontal footer-center bg-linear-to-br from-orange-500 via-orange-600 to-orange-700  text-primary-content p-10 ">
         <aside className="">
           <p className="font-bold text-4xl md:text-6xl text-center ">
-            KeenKeeper
+            SkillSphere
           </p>
           <p className="opacity-80">
-            Your personal shelf of meaningful connections. Browse, tend, and
-            nurture the relationships that matter most.
+            Skills will take you way higher than you think.Start today or regret
+            tomorrow.The choice is YOURS.Thank you for visiting.
           </p>
           <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
         </aside>
@@ -54,7 +54,7 @@ const Footer = () => {
         </nav>
         <div className="w-full">
           <div className="flex w-full flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>© 2026 KeenKeeper. All rights reserved.</div>
+            <div>© 2026 SkillSphere. All rights reserved.</div>
             <div className="flex gap-6 justify-center">
               <p>Privacy Policy </p>
               <p>Terms of Service </p>

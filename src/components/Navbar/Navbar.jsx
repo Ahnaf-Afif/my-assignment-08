@@ -10,6 +10,9 @@ import { TvMinimalPlay } from "lucide-react";
 import { LogIn } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
+const defaultImage =
+  "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
+
 const Navbar = () => {
   const pathname = usePathname();
 
@@ -72,15 +75,18 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="profile"
-                  src={
-                    user?.image ||
-                    "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  }
+                  src={user?.image || defaultImage}
+                  onError={(e) => {
+                    e.currentTarget.src = defaultImage;
+                  }}
                 />
               </div>
             </div>
+            <Link href="/Profile" className="btn">
+              <button>Profile</button>
+            </Link>
             <Link
-              href="/Login"
+              href="/"
               className={`btn ${
                 pathname === "/Login" ? "bg-[#244D3F] text-white" : ""
               }`}
@@ -119,6 +125,7 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+
         <div className="dropdown dropdown-end md:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost">
             Menu
