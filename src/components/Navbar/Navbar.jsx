@@ -135,6 +135,25 @@ const Navbar = () => {
             tabIndex={0}
             className="menu dropdown-content z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
           >
+            {user && (
+              <li className="px-3 py-2">
+                <div className="flex items-center gap-2 p-0">
+                  <div className="avatar">
+                    <div className="w-8 rounded-full">
+                      <img
+                        alt="profile"
+                        src={user?.image || defaultImage}
+                        onError={(e) => {
+                          e.currentTarget.src = defaultImage;
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <span>Hello, {user?.name}</span>
+                </div>
+              </li>
+            )}
+
             <li>
               <Link
                 href="/"
@@ -158,16 +177,36 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link
-                href="/Login"
-                className={
-                  pathname === "/Login" ? "bg-[#244D3F] text-white" : ""
-                }
-              >
-                <LogIn />
-                Login
-              </Link>
+              {user ? (
+                <Link
+                  href="/Profile"
+                  className={
+                    pathname === "/Profile" ? "bg-[#244D3F] text-white" : ""
+                  }
+                >
+                  Profile
+                </Link>
+              ) : (
+                <Link
+                  href="/Login"
+                  className={
+                    pathname === "/Login" ? "bg-[#244D3F] text-white" : ""
+                  }
+                >
+                  <LogIn />
+                  Login
+                </Link>
+              )}
             </li>
+
+            {user && (
+              <li>
+                <button onClick={async () => await authClient.signOut()}>
+                  <LogIn />
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

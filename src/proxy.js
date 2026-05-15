@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
-import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 
 // This function can be marked `async` if using `await` inside
 export async function proxy(request) {
   const session = await auth.api.getSession({
-    headers: await headers(),
+    headers: request.headers,
   });
 
   //   function isLoggedIn() {
@@ -22,5 +21,5 @@ export async function proxy(request) {
 // export default function proxy(request) { ... }
 
 export const config = {
-  matcher: "/Details",
+  matcher: "/Details/:path*",
 };
