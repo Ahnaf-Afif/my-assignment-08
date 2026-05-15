@@ -31,7 +31,7 @@ const Section2 = () => {
                 variant="outline"
                 className="border-orange-300 text-orange-700 hover:bg-orange-50"
               >
-                View All
+                <Link href="/AllCourses">View All</Link>
               </Button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
